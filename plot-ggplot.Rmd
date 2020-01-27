@@ -50,9 +50,74 @@ library(here) #install.packages("here")
 ```{r read-data}
 ca_np <- read_csv(here("data/ca_np.csv"))
 
-ci_np <- read_excel(here("ci_np.xlsx"))
+ci_np <- read_excel(here("data/ci_np.xlsx"))
 ```
 ```{r}
-install.packages("readxl")
+#install.packages("readxl")
+#install.packages("readcsv")
 ```
+
+## Make my own first graph!
+
+We're going to make a line plot of year (x-variable) vs visitors (y-variable) in 
+ggplot: 
+
+Command + Option/Alt + I
+```{r}
+# Trying ggplot2 with Channel Islands
+ggplot(data = ci_np, aes(x = year, y = visitors)) +
+  geom_col()
+```
+
+Making a base layer for my channel islands plot:
+```{r}
+gg_base <- ggplot(data = ci_np, aes(x = year, y = visitors))
+
+gg_base + geom_area()
+```
+
+### Now let's start customizing!
+
+- Line / point colors: color 
+- Change line type: linetype
+- Change point style: pch
+- Change transparency: alpha
+
+
+```{r}
+gg_base +
+  geom_line(
+    color = "purple",
+    linetype = "dashed"
+  )
+```
+Activity
+```{r}
+gg_base + geom_point(pch = 2,
+                     color = "red",
+                     size = 3)
+```
+### Update graph aesthetics based on variables
+
+```{r}
+gg_base +
+  geom_point(
+    aes(size = visitors,
+        color = year),
+    pch = 10
+  )
+```
+
+### Use gg-themes for overall updates
+
+- theme_light()
+- theme_minimal()
+- theme_bw()
+
+```{r}
+gg_base +
+  geom_area() +
+  theme_light()
+```
+
 
