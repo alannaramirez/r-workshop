@@ -25,9 +25,29 @@ You can also embed plots, for example:
 plot(pressure)
 ```
 
+```{r}
+install.packages("tidyverse")
+```
+
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 
 
 # Plots with ggplot2
 
 We are going to make plots in r using the ggplot2 package from the tidyverse.
+
+readxl: to read excel files (in many ways)
+here: to help with filepaths
+
+```{r setup, message=FALSE, error=FALSE}
+library(tidyverse) #install.packages("tidyverse")
+library(readxl) #install.packages("readxl")
+library(here) #install.packages("here")
+```
+
+#California National Parks Data
+```{r read-data}
+ca_np <- read_csv(here("data/ca_np.csv"))
+
+```
+
