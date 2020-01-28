@@ -19,7 +19,7 @@ library(kableExtra) # install.packages("kableExtra")
 lobsters <- read_xlsx(here("data", "lobsters.xlsx"),
 skip = 4)
 ```{r}
-lobsters <- read_xlsx(here("data", "lobsters.xlsx"),
+lobsters <- read_xlsx(here("data", "lobsters2.xlsx"),
                       skip = 4)
 ```
 
