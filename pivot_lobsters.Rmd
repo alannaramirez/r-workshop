@@ -86,9 +86,6 @@ median_summary <- lobsters %>%
 ggplot(data = median_summary, aes(x = year, y = median_size_mm, color = site)) +
   geom_line()
 ggsave(here("figures", "lobsters-plot.png"))
-```
 
-```{r}
-ggplot()
 ```
 
